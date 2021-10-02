@@ -1,5 +1,6 @@
 package baseball.domain;
 
+import baseball.domain.contant.GameRules;
 import baseball.domain.result.BallCount;
 import baseball.domain.result.JudgmentMachine;
 
@@ -16,7 +17,7 @@ public class Referee {
     }
 
     public boolean isAllStrike() {
-        if (this.ballCount.getStrike() == 3) {
+        if (this.ballCount.getStrike() == GameRules.SIZE.value()) {
             return true;
         }
         return false;

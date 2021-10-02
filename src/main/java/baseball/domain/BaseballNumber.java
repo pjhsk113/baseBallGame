@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import baseball.domain.contant.GameRules;
+
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,20 +33,20 @@ public class BaseballNumber {
     }
 
     private static void validateInputSize(List<Integer> baseballNumbers) {
-        if (baseballNumbers.size() > 3) {
+        if (baseballNumbers.size() > GameRules.SIZE.value()) {
             throw new IllegalArgumentException(INVALID_INPUT_SIZE);
         }
     }
 
     private void validateDuplicateNumber(Set<Integer> baseBallNumbers) {
-        if (baseBallNumbers.size() != 3) {
+        if (baseBallNumbers.size() != GameRules.SIZE.value()) {
             throw new IllegalArgumentException(DUPLICATE_NUMBER_OR_INVALID_NUMBER);
         }
     }
 
     private void validateNumberRange(Set<Integer> baseBallNumbers) {
         for (Integer number : baseBallNumbers) {
-            if (number < 1 || number > 9) {
+            if (number < GameRules.START_INCLUSIVE.value() || number > GameRules.END_INCLUSIVE.value()) {
                 throw new IllegalArgumentException(OUT_OF_RANGE_NUMBER);
             }
         }

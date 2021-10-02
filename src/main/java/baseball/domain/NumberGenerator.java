@@ -1,13 +1,12 @@
 package baseball.domain;
 
+import baseball.domain.contant.GameRules;
 import newtstep.utils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NumberGenerator {
-    private static final int START_INCLUSIVE = 1;
-    private static final int END_INCLUSIVE = 9;
 
     private NumberGenerator() {
     }
@@ -15,8 +14,9 @@ public class NumberGenerator {
     public static BaseballNumber generateNumber() {
         List<Integer> baseballNumbers = new ArrayList<>();
 
-        while (baseballNumbers.size() < 3) {
-            baseballNumbers = addNonDuplicateNumber(baseballNumbers, Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE));
+        while (baseballNumbers.size() < GameRules.SIZE.value()) {
+            int randomNumber = Randoms.pickNumberInRange(GameRules.START_INCLUSIVE.value(), GameRules.END_INCLUSIVE.value());
+            baseballNumbers = addNonDuplicateNumber(baseballNumbers, randomNumber);
         }
         return BaseballNumber.of(baseballNumbers);
     }
