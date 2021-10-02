@@ -14,8 +14,8 @@ public class BaseballGame {
             // 플레이어는 숫자(임의의 숫자 3개)를 입력한다.
             Player playerNumbers = Player.inputBaseballNumber(InputView.enterNumber());
 
-            // 심판은 결과를 판단한다.
-            Referee referee = Referee.getBallCountResult(targetNumbers, playerNumbers);
+            // 심판에게 결과를 요청한다.
+            Referee referee = Referee.of(targetNumbers, playerNumbers);
 
             // 판단 결과를 출력한다.
             OutputView.printResult(referee);
