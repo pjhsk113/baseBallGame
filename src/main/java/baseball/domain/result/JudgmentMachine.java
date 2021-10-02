@@ -9,32 +9,32 @@ public class JudgmentMachine {
     private JudgmentMachine() {
     }
 
-    public static Referee judgmentResult(GameHost targetNumber, Player playerPickNumber) {
+    public static BallCount judgmentResult(GameHost targetNumber, Player playerPickNumber) {
         return getBallCount(targetNumber.getTargetNumbers(), playerPickNumber.getBaseballNumbers());
     }
 
-    private static Referee getBallCount(BaseballNumber targetNumber, BaseballNumber playerPickNumber) {
-        Referee referee = Referee.of();
+    private static BallCount getBallCount(BaseballNumber targetNumber, BaseballNumber playerPickNumber) {
+        BallCount ballCount = new BallCount(0, 0);
 
         for (int i = 0; i < 3; i++) {
-            referee = ballCount(referee, targetNumber, playerPickNumber, i);
+            ballCount = judgment(ballCount, targetNumber, playerPickNumber, i);
         }
 
-        return referee;
+        return ballCount;
     }
 
-    private static Referee ballCount(Referee referee, BaseballNumber targetNumbers, BaseballNumber playerPickNumbers, int index) {
+    private static BallCount judgment(BallCount ballCount, BaseballNumber targetNumbers, BaseballNumber playerPickNumbers, int index) {
         Integer targetNumber = convert(targetNumbers)[index];
         Integer pickNumber = convert(playerPickNumbers)[index];
 
         if (isStrike(targetNumber, pickNumber)) {
-            referee.strike();
+            ballCount.plusStrike();
         }
 
         if (isBall(targetNumbers, targetNumber, pickNumber)) {
-            referee.ball();
+            ballCount.plusBall();
         }
-        return referee;
+        return ballCount;
     }
 
     private static boolean isStrike(Integer targetNumber, Integer number) {
