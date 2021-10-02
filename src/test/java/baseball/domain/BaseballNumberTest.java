@@ -11,14 +11,14 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class BaseBallNumberTest {
+class BaseballNumberTest {
 
     @DisplayName("잘못된 범위의 숫자가 입력됐을 때 exception 테스트")
     @ParameterizedTest
     @MethodSource("generateOutOfRangeBaseBallNumberData")
     void outOfRangeNumberTest(List<Integer> numbers) {
         assertThatThrownBy(() -> {
-            BaseBallNumber.of(numbers);
+            BaseballNumber.of(numbers);
         }).isInstanceOf(IllegalArgumentException.class);
     }
     private static Stream<Arguments> generateOutOfRangeBaseBallNumberData() {
@@ -26,7 +26,7 @@ class BaseBallNumberTest {
                 Arguments.of(Arrays.asList(1, 0, 8)),
                 Arguments.of(Arrays.asList(1, 2, 10)),
                 Arguments.of(Arrays.asList(20, 30, 10)),
-                Arguments.of(Arrays.asList(0, 10, 11)),
+                Arguments.of(Arrays.asList(1, 9, 1,2)),
                 Arguments.of(Arrays.asList(10, 1, 2, 3, 4)),
                 Arguments.of(Arrays.asList(1, 2, 3, 4, 6))
         );
@@ -37,7 +37,7 @@ class BaseBallNumberTest {
     @MethodSource("generateDuplicateBaseBallNumberData")
     void duplicateNumberTest(List<Integer> numbers) {
         assertThatThrownBy(() -> {
-            BaseBallNumber.of(numbers);
+            BaseballNumber.of(numbers);
         }).isInstanceOf(IllegalArgumentException.class);
     }
     private static Stream<Arguments> generateDuplicateBaseBallNumberData() {
