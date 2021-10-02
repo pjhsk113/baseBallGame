@@ -9,6 +9,7 @@ import java.util.List;
 public class InputView {
     private static final String ENTER_NUMBER_MESSAGE = "숫자를 입력해주세요.";
     private static final String TRY_AGAIN = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+    private static final String DELIMITER = "";
 
     private InputView() {
     }
@@ -26,7 +27,7 @@ public class InputView {
     private static List<Integer> convertList(String numbers) {
         List<Integer> baseBallNumbers = new ArrayList<>();
 
-        for (String number : numbers.split("")) {
+        for (String number : numbers.split(DELIMITER)) {
             baseBallNumbers.add(Integer.parseInt(number));
         }
         return baseBallNumbers;
