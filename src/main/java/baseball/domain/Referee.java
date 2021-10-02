@@ -10,12 +10,9 @@ public class Referee {
         this.ballCount = ballCount;
     }
 
-    public static Referee of() {
-        return new Referee(new BallCount(0, 0));
-    }
-
-    public static Referee getBallCountResult(GameHost gameHostPickNumber, Player playerPickNumber) {
-        return JudgmentMachine.judgmentResult(gameHostPickNumber, playerPickNumber);
+    public static Referee of(GameHost gameHostPickNumber, Player playerPickNumber) {
+        BallCount ballCount = JudgmentMachine.judgmentResult(gameHostPickNumber, playerPickNumber);
+        return new Referee(ballCount);
     }
 
     public boolean isAllStrike() {
@@ -23,14 +20,6 @@ public class Referee {
             return true;
         }
         return false;
-    }
-
-    public void strike() {
-        ballCount.plusStrike();
-    }
-
-    public void ball() {
-        ballCount.plusBall();
     }
 
     public int getHitStrike() {
