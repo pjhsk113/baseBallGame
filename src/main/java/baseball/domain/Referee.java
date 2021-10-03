@@ -23,11 +23,11 @@ public class Referee {
         return false;
     }
 
-    public int getHitStrike() {
+    public int getStrike() {
         return ballCount.getStrike();
     }
 
-    public int getHitBall() {
+    public int getBall() {
         return ballCount.getBall();
     }
 }

@@ -18,20 +18,20 @@ public class OutputView {
     }
 
     private static String printFormatString(Referee referee) {
-        if (referee.getHitStrike() == 3) {
+        if (referee.getStrike() == 3) {
             System.out.println(printStrike(referee));
             return WINNING_MESSAGE;
         }
 
-        if (hasResult(referee.getHitStrike()) && hasResult(referee.getHitBall())) {
+        if (hasResult(referee.getStrike()) && hasResult(referee.getBall())) {
             return printBallCount(referee);
         }
 
-        if (hasResult(referee.getHitBall()) && !hasResult(referee.getHitStrike())) {
+        if (hasResult(referee.getBall()) && !hasResult(referee.getStrike())) {
             return printBall(referee);
         }
 
-        if (hasResult(referee.getHitStrike()) && !hasResult(referee.getHitBall())) {
+        if (hasResult(referee.getStrike()) && !hasResult(referee.getBall())) {
             return printStrike(referee);
         }
 
@@ -46,14 +46,14 @@ public class OutputView {
     }
 
     private static String printStrike(Referee result) {
-        return String.format(STRIKE_FORMAT, result.getHitStrike());
+        return String.format(STRIKE_FORMAT, result.getStrike());
     }
 
     private static String printBall(Referee result) {
-        return String.format(BALL_FORMAT, result.getHitBall());
+        return String.format(BALL_FORMAT, result.getBall());
     }
 
     private static String printBallCount(Referee result) {
-        return String.format(BALL_COUNT_FORMAT, result.getHitStrike(), result.getHitBall());
+        return String.format(BALL_COUNT_FORMAT, result.getStrike(), result.getBall());
     }
 }
