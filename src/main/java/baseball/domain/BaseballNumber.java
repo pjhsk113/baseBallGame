@@ -23,10 +23,17 @@ public class BaseballNumber {
         return new BaseballNumber(new LinkedHashSet<>(numbers));
     }
 
-    public Set<Integer> getBaseBallNumbers() {
-        return baseBallNumbers;
+    public int valueOf(int index) {
+        return (Integer) baseBallNumbers.toArray()[index];
     }
 
+    public boolean hasNumber(int pickNumber) {
+        return baseBallNumbers.contains(pickNumber);
+    }
+
+    /**
+     * validation 메서드
+     */
     private void validator(Set<Integer> baseBallNumbers) {
         validateDuplicateNumber(baseBallNumbers);
         validateNumberRange(baseBallNumbers);
