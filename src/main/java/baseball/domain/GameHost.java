@@ -7,6 +7,10 @@ public class GameHost {
         this.targetNumbers = targetNumbers;
     }
 
+    public static GameHost of(BaseballNumber targetNumbers) {
+        return new GameHost(targetNumbers);
+    }
+
     public static GameHost createTargetNumbers() {
         return new GameHost(NumberGenerator.generateNumber());
     }
