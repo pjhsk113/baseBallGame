@@ -16,7 +16,12 @@ public class InputView {
 
     public static BaseballNumber enterNumber() {
         System.out.println(ENTER_NUMBER_MESSAGE);
-        return BaseballNumber.of(convertList(Console.readLine()));
+        try {
+             return BaseballNumber.of(convertList(Console.readLine()));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return enterNumber();
+        }
     }
 
     public static int enterNumberTryAgain() {
