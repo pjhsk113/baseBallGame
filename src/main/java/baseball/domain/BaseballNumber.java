@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Set;
 
 public class BaseballNumber {
-    private static final String DUPLICATE_NUMBER_OR_INVALID_NUMBER = "숫자에 중복이 존재하거나 잘못 입력하셨습니다.";
-    private static final String OUT_OF_RANGE_NUMBER = "입력 범위에 벗어난 숫자입니다. 입력 가능한 숫자 범위: 1 ~ 9";
-    private static final String INVALID_INPUT_SIZE = "입력한 숫자가 너무 많거나 범위를 벗어났습니다. 1 ~ 9 사이의 숫자 3개를 입력해주세요.";
+    private static final String DUPLICATE_NUMBER_OR_INVALID_NUMBER = "[ERROR] 숫자에 중복이 존재하거나 잘못 입력하셨습니다.";
+    private static final String OUT_OF_RANGE_NUMBER = "[ERROR] 입력 범위에 벗어난 숫자입니다. 입력 가능한 숫자 범위: 1 ~ 9";
+    private static final String INVALID_INPUT_SIZE = "[ERROR] 입력한 숫자가 너무 많거나 범위를 벗어났습니다. 1 ~ 9 사이의 숫자 3개를 입력해주세요.";
 
     private final Set<Integer> baseBallNumbers;
 
