@@ -25,8 +25,8 @@ public class JudgmentMachine {
     }
 
     private static BallCount judgment(BallCount ballCount, BaseballNumber targetNumbers, BaseballNumber playerPickNumbers, int index) {
-        Integer targetNumber = convert(targetNumbers)[index];
-        Integer pickNumber = convert(playerPickNumbers)[index];
+        int targetNumber = targetNumbers.valueOf(index);
+        int pickNumber = playerPickNumbers.valueOf(index);
 
         if (isStrike(targetNumber, pickNumber)) {
             ballCount.plusStrike();
@@ -38,23 +38,17 @@ public class JudgmentMachine {
         return ballCount;
     }
 
-    private static boolean isStrike(Integer targetNumber, Integer number) {
-        if (targetNumber.equals(number)) {
+    private static boolean isStrike(int targetNumber, int pickNumber) {
+        if (targetNumber == pickNumber) {
             return true;
         }
         return false;
     }
 
-    private static boolean isBall(BaseballNumber target, Integer targetNumber, Integer number) {
-        if (!isStrike(targetNumber, number) && target.getBaseBallNumbers().contains(number)) {
+    private static boolean isBall(BaseballNumber target, int targetNumber, int pickNumber) {
+        if (!isStrike(targetNumber, pickNumber) && target.hasNumber(pickNumber)) {
             return true;
         }
         return false;
-    }
-
-    private static Integer[] convert(BaseballNumber numbers) {
-        Integer[] numberToArray = new Integer[3];
-        numbers.getBaseBallNumbers().toArray(numberToArray);
-        return numberToArray;
     }
 }
