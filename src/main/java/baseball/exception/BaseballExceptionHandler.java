@@ -1,6 +1,6 @@
 package baseball.exception;
 
-import baseball.domain.contant.GameRules;
+import baseball.contant.GameRules;
 
 import java.util.List;
 import java.util.Set;

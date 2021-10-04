@@ -1,6 +1,6 @@
 package baseball.domain;
 
-import baseball.domain.contant.GameRules;
+import baseball.contant.GameRules;
 import baseball.exception.BaseballExceptionHandler;
 import newtstep.utils.Randoms;
 

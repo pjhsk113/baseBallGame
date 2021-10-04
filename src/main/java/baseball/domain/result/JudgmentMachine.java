@@ -1,10 +1,9 @@
 package baseball.domain.result;
 
+import baseball.contant.GameRules;
 import baseball.domain.BaseballNumber;
 import baseball.domain.GameHost;
 import baseball.domain.Player;
-import baseball.domain.Referee;
-import baseball.domain.contant.GameRules;
 
 public class JudgmentMachine {
     private JudgmentMachine() {

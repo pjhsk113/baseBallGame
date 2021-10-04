@@ -1,6 +1,6 @@
 package baseball.domain;
 
-import baseball.domain.contant.GameRules;
+import baseball.contant.GameRules;
 import baseball.domain.result.BallCount;
 import baseball.domain.result.JudgmentMachine;
 
