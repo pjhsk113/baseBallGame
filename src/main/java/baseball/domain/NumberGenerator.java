@@ -1,6 +1,7 @@
 package baseball.domain;
 
 import baseball.domain.contant.GameRules;
+import baseball.exception.BaseballExceptionHandler;
 import newtstep.utils.Randoms;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class NumberGenerator {
         List<Integer> baseballNumbers = new ArrayList<>();
 
         while (baseballNumbers.size() < GameRules.SIZE.value()) {
+            BaseballExceptionHandler.validateGameRules();
             int randomNumber = Randoms.pickNumberInRange(GameRules.START_INCLUSIVE.value(), GameRules.END_INCLUSIVE.value());
             baseballNumbers = addNonDuplicateNumber(baseballNumbers, randomNumber);
         }
