@@ -12,7 +12,7 @@ public class BaseballGame {
         boolean isAnswer = false;
         while(!isAnswer) {
             // 플레이어는 숫자(임의의 숫자 3개)를 입력한다.
-            Player playerNumbers = Player.inputBaseballNumber(InputView.enterNumber());
+            Player playerNumbers = Player.pickBaseballNumber(InputView.enterNumber());
 
             // 심판에게 결과를 요청한다.
             Referee referee = Referee.of(targetNumbers, playerNumbers);

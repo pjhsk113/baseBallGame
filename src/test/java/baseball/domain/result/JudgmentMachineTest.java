@@ -17,7 +17,7 @@ class JudgmentMachineTest {
     @BeforeEach
     void setUp() {
         GameHost targetNumber = GameHost.of(BaseballNumber.of(Arrays.asList(6,3,8)));
-        Player inputNumber = Player.inputBaseballNumber(BaseballNumber.of(Arrays.asList(3,8,7)));
+        Player inputNumber = Player.pickBaseballNumber(BaseballNumber.of(Arrays.asList(3,8,7)));
         ballCount = JudgmentMachine.judgmentResult(targetNumber, inputNumber);
     }
 

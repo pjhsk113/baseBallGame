@@ -19,7 +19,7 @@ class RefereeTest {
     @MethodSource("generateData")
     void refereeTest(List<Integer> target, List<Integer> pickNumber, BallCount ballCount) {
         GameHost host = GameHost.of(BaseballNumber.of(target));
-        Player player = Player.inputBaseballNumber(BaseballNumber.of(pickNumber));
+        Player player = Player.pickBaseballNumber(BaseballNumber.of(pickNumber));
 
         assertThat(Referee.of(host, player).getStrike()).isEqualTo(ballCount.getStrike());
         assertThat(Referee.of(host, player).getBall()).isEqualTo(ballCount.getBall());
@@ -41,7 +41,7 @@ class RefereeTest {
     @MethodSource("generateStrikeData")
     void isAllStrikeTest(List<Integer> target, List<Integer> pickNumber, boolean isAllStrike) {
         GameHost host = GameHost.of(BaseballNumber.of(target));
-        Player player = Player.inputBaseballNumber(BaseballNumber.of(pickNumber));
+        Player player = Player.pickBaseballNumber(BaseballNumber.of(pickNumber));
 
         assertThat(Referee.of(host, player).isAllStrike()).isEqualTo(isAllStrike);
         assertThat(Referee.of(host, player).isAllStrike()).isEqualTo(isAllStrike);

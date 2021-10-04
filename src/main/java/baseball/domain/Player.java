@@ -7,7 +7,7 @@ public class Player {
         this.baseballNumbers = baseballNumbers;
     }
 
-    public static Player inputBaseballNumber(BaseballNumber baseballNumber) {
+    public static Player pickBaseballNumber(BaseballNumber baseballNumber) {
         return new Player(baseballNumber);
     }
 
