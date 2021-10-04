@@ -1,4 +1,4 @@
-package baseball.domain.contant;
+package baseball.contant;
 
 public enum GameRules {
     START_INCLUSIVE(1),
