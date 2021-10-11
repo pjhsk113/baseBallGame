@@ -16,9 +16,23 @@ public class Balls {
 
     private static List<Ball> createBalls(String[] inputNumber) {
         List<Ball> balls = new ArrayList<>();
-
         for (int i = 0; i < inputNumber.length; i++) {
+            validateDuplicateBall(balls, Integer.parseInt(inputNumber[i]));
             balls.add(Ball.of(Integer.parseInt(inputNumber[i]), i));
+        }
+
+        return balls;
+    }
+
+    private static void validateDuplicateBall(List<Ball> balls, int number) {
+        for (Ball ball : balls) {
+            isDuplicateNumber(number, ball);
+        }
+    }
+
+    private static void isDuplicateNumber(int number, Ball ball) {
+        if (ball.getNumber() == number) {
+            throw new IllegalArgumentException("숫자는 중복될 수 없습니다.");
         }
     }
 }
